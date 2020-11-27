@@ -1,0 +1,5 @@
+FROM envoyproxy/envoy-dev:latest
+COPY ./envoy.yaml /etc/envoy.yaml
+COPY ./target/wasm32-unknown-unknown/release/envoy_filter.wasm /lib/envoy_filter.wasm
+RUN chmod go+r /etc/envoy.yaml /lib/envoy_filter.wasm
+CMD ["/usr/local/bin/envoy", "-c", "/etc/envoy.yaml", "--service-cluster", "proxy"]

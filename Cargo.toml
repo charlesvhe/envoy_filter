@@ -1,0 +1,13 @@
+[package]
+name = "envoy_filter"
+version = "0.1.0"
+authors = ["charles"]
+edition = "2018"
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+log = "0"
+proxy-wasm = "0"
